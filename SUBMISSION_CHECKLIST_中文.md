@@ -23,18 +23,20 @@
 
 ## 三、交付文件核对
 
-- [ ] `.sol`：`contracts/GoalSave.sol`
-- [ ] ABI：`abi/GoalSave.json`
-- [ ] Flask：`app.py`
-- [ ] HTML：`templates/index.html`
-- [ ] CSS：`static/styles.css`
-- [ ] JavaScript：`static/app.js`
-- [ ] Render link：已写进 README 和报告
-- [ ] GitHub link：已写进 README 和报告
-- [ ] Sepolia contract address：已写进 README 和报告
-- [ ] 5–8 页 PDF 报告：信息和截图均为最终版本
-- [ ] 自动测试截图或测试输出
-- [ ] README 部署/运行说明
+- [x] `.sol`：`contracts/GoalSave.sol`
+- [x] ABI：`abi/GoalSave.json`
+- [x] Flask：`app.py`
+- [x] HTML：`templates/index.html`
+- [x] CSS：`static/styles.css`
+- [x] JavaScript：`static/app.js`
+- [x] Render link：已写进 README 和报告
+- [x] GitHub link：已写进 README 和报告
+- [x] Sepolia contract address：已写进 README 和报告
+- [x] 5–8 页 PDF 报告：信息和截图均为最终版本
+- [x] 自动测试输出：`docs/TEST_RESULTS.txt`
+- [x] README 部署/运行说明
+
+最终提交前仍需把本次新增的最终报告、截图和说明推送到 GitHub。
 
 ## 四、答辩时要能解释的内容
 

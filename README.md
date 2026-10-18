@@ -6,7 +6,7 @@ GoalSave is a goal-based savings DApp for Ethereum Sepolia. A user creates a nam
 
 ## Submission links
 
-- Render application: **add after deployment**
+- Render application: https://goalsave-sc6113.onrender.com
 - Sepolia contract: <https://sepolia.etherscan.io/address/0x80c18baaf6102a26f5fedd337ef33ff1576c69fd>
 - GitHub repository: <https://github.com/hehu6/GoalSave-SC6113-Individual-Assignment>
 
@@ -24,6 +24,7 @@ GoalSave is a goal-based savings DApp for Ethereum Sepolia. A user creates a nam
 | Smart-contract tests | `tests/contract.test.mjs` |
 | Flask tests | `tests/test_app.py` |
 | Test plan | `docs/TEST_PLAN.md` |
+| Test results | `docs/TEST_RESULTS.txt` |
 | Report | `docs/GoalSave_SC6113_Report.pdf` |
 | Editable report generator | `docs/report_source.py` |
 
@@ -89,7 +90,7 @@ pip install -r requirements-dev.txt
 python docs/report_source.py
 ```
 
-Replace the local preview images with real Render, MetaMask, and Etherscan evidence before the final PDF is submitted.
+The final report uses the real Render, MetaMask, GoalSave, and Sepolia Etherscan evidence stored in `docs/screenshots/`.
 
 ## Deploy the smart contract to Sepolia
 
@@ -128,12 +129,12 @@ Never commit `.env` or a private key. The script verifies chain ID `11155111` an
 
 1. Open the Render site in a desktop browser with MetaMask.
 2. Connect a Sepolia account.
-3. Create a goal such as **Professional course**, target `0.02 ETH`, deadline next week.
-4. Deposit `0.01 ETH`; confirm the balance and event history update.
+3. Create a goal such as **Professional Course Fund**, target `0.002 ETH`, deadline next week.
+4. Deposit `0.001 ETH`; confirm the balance and event history update.
 5. Try normal withdrawal: it should remain locked before the target/deadline.
-6. Deposit the remaining `0.01 ETH`, then withdraw successfully.
+6. Deposit the remaining `0.001 ETH`, then withdraw successfully.
 7. Open both transactions on Sepolia Etherscan.
-8. Create a second small goal and demonstrate **Close early**.
+8. Optionally create a second small goal to demonstrate **Close early**.
 
 Use small amounts of free Sepolia test ETH. Do not use real ETH.
 
@@ -147,6 +148,7 @@ GoalSave-SC6113/
 ├── docs/
 │   ├── GoalSave_SC6113_Report.pdf
 │   ├── report_source.py
+│   ├── TEST_RESULTS.txt
 │   ├── TEST_PLAN.md
 │   └── screenshots/
 ├── scripts/
@@ -167,4 +169,4 @@ GoalSave-SC6113/
 ```
 
 
-Before submission, replace the placeholders in the report, review and understand every file, and follow NTU's academic-integrity rules. You are responsible for explaining the design and demonstrating the transactions.
+Before submission, review and understand every file, confirm the final PDF opens correctly, and follow NTU's academic-integrity rules. You are responsible for explaining the design and demonstrating the transactions.

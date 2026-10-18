@@ -25,16 +25,16 @@ Record the final result and screenshot filename for each manual test after Sepol
 
 | ID | Test | Expected result | Actual result | Screenshot |
 | --- | --- | --- | --- | --- |
-| M01 | Open Render link | GoalSave loads without server error | Pending | `01-render-home.png` |
-| M02 | Connect MetaMask on another network | App requests Sepolia switch | Pending | `02-network-switch.png` |
-| M03 | Create valid goal | Confirmed transaction and goal card | Pending | `03-create-goal.png` |
-| M04 | Create blank / past-deadline goal | Validation blocks submission | Pending | `04-invalid-goal.png` |
-| M05 | Deposit positive test ETH | Balance, progress, and event update | Pending | `05-deposit-success.png` |
-| M06 | Deposit zero | Validation blocks submission | Pending | `06-invalid-deposit.png` |
-| M07 | Withdraw too early | Button disabled or contract reverts | Pending | `07-withdraw-locked.png` |
-| M08 | Reach target and withdraw | Full balance returned; goal closes | Pending | `08-withdraw-success.png` |
-| M09 | Open transaction link | Correct Sepolia Etherscan receipt shown | Pending | `09-etherscan.png` |
-| M10 | Refresh/reopen app | Goal and history remain available on-chain | Pending | `10-persistence.png` |
+| M01 | Open Render link | GoalSave loads without server error | Pass; live Render page, `/health`, and `/api/config` verified | `01-render-home.png` |
+| M02 | Connect MetaMask on another network | App requests Sepolia switch | Connected account and Sepolia state verified; switch prompt not separately captured | `01-render-home.png` |
+| M03 | Create valid goal | Confirmed transaction and goal card | Pass; goal 1 created with target 0.002 ETH | `03-create-goal.png` |
+| M04 | Create blank / past-deadline goal | Validation blocks submission | Covered by Flask validation tests; no separate browser capture | Not captured |
+| M05 | Deposit positive test ETH | Balance, progress, and event update | Pass; first 0.001 ETH deposit produced 50 percent progress | `05-deposit-success.png` |
+| M06 | Deposit zero | Validation blocks submission | Covered by Flask validation tests; no separate browser capture | Not captured |
+| M07 | Withdraw too early | Button disabled or contract reverts | Pass; Withdraw remained disabled at 50 percent | `05-deposit-success.png` |
+| M08 | Reach target and withdraw | Full balance returned; goal closes | Pass; target reached and 0.002 ETH returned | `06-target-reached.png`, `08-withdraw-success.png` |
+| M09 | Open transaction link | Correct Sepolia Etherscan receipt shown | Pass; status Success at block 11941002 | `09-etherscan-withdrawal.png` |
+| M10 | Refresh/reopen app | Goal and history remain available on-chain | State and events reloaded after confirmed transactions; no separate reopen capture | `08-withdraw-success.png` |
 
 ## Browser checks
 

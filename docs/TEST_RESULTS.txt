@@ -1,0 +1,30 @@
+GoalSave final verification
+Date: 18 October 2026
+
+Smart contract
+- Compiler: Solidity 0.8.30
+- Optimizer: enabled, 200 runs
+- EVM target: Paris
+- Deployed bytecode: 4,040 bytes
+- Result: 8 tests passed, 0 failed
+- Scenarios: goal creation, contribution, invalid deposit, locked withdrawal,
+  successful withdrawal, non-owner rejection, emergency close, direct ETH rejection
+
+Flask
+- Result: 6 tests passed, 0 failed
+- Scenarios: home and health, public config and ABI, valid goal validation,
+  invalid goal validation, invalid deposit validation, transaction hash and RPC fallback
+
+JavaScript
+- Result: static/app.js syntax check passed
+
+Live deployment
+- Render: https://goalsave-sc6113.onrender.com
+- Sepolia contract: 0x80c18baaf6102a26f5fedd337ef33ff1576c69fd
+- Deployment block: 11939866
+- Deployment transaction:
+  0x8ebf4a34d05ac7626a89cbfb4a6a78e3ca1725584b9ac3a2af6e6a3c1c7a9370
+- Manual flow: create 0.002 ETH goal, deposit 0.001 ETH, verify locked
+  withdrawal, deposit remaining 0.001 ETH, withdraw 0.002 ETH successfully
+- Withdrawal transaction:
+  0xf5f6315cbab1288cc38179799ae135a8ba09033b923bcef038ca2c5991b4e09f
