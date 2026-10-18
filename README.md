@@ -168,5 +168,3 @@ GoalSave-SC6113/
 └── requirements.txt
 ```
 
-
-Before submission, review and understand every file, confirm the final PDF opens correctly, and follow NTU's academic-integrity rules. You are responsible for explaining the design and demonstrating the transactions.
