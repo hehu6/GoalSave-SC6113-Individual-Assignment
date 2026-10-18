@@ -137,16 +137,6 @@ Never commit `.env` or a private key. The script verifies chain ID `11155111` an
 
 Use small amounts of free Sepolia test ETH. Do not use real ETH.
 
-## Security and limitations
-
-- Input validation is performed in both Flask/JavaScript and Solidity.
-- Only the goal owner may withdraw.
-- Withdrawals update state before the external ETH call and use a re-entrancy guard.
-- The UI checks Sepolia chain ID before constructing the contract.
-- The app is not audited and must not be used with real funds.
-- Event queries through MetaMask may be slow on free RPC endpoints; `DEPLOYMENT_BLOCK` limits the query range.
-- Emergency withdrawal weakens savings discipline by design, but it is explicit, irreversible, and independently recorded.
-
 ## Project structure
 
 ```text
@@ -176,8 +166,5 @@ GoalSave-SC6113/
 └── requirements.txt
 ```
 
-## Course reference and declaration
-
-The development approach was informed by the lecturer's public SC6113 `paynow` storage example: <https://gist.github.com/teohteiktoe/84327003ab22a8829a681b84e4b3ad19>. That example stores three values and does not transfer ETH. GoalSave's financial logic, UI, tests, and documentation are a separate implementation.
 
 Before submission, replace the placeholders in the report, review and understand every file, and follow NTU's academic-integrity rules. You are responsible for explaining the design and demonstrating the transactions.
