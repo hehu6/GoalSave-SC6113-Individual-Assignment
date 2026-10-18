@@ -93,7 +93,7 @@ The final report uses the real Render, MetaMask, GoalSave, and Sepolia Etherscan
 
 ## Deploy the smart contract to Sepolia
 
-### Recommended classroom-friendly method: Remix + MetaMask
+### Remix + MetaMask
 
 1. Open [Remix](https://remix.ethereum.org/), create `GoalSave.sol`, and paste `contracts/GoalSave.sol`.
 2. Compile with Solidity `0.8.30`, optimizer enabled, 200 runs.
@@ -110,7 +110,7 @@ Copy `.env.example` to `.env`, use a disposable test-only wallet, then run:
 pnpm run deploy:sepolia
 ```
 
-Never commit `.env` or a private key. The script verifies chain ID `11155111` and updates `deployment.json` after confirmation.
+The script verifies chain ID `11155111` and updates `deployment.json` after confirmation.
 
 ## Deploy Flask to Render
 
@@ -135,7 +135,7 @@ Never commit `.env` or a private key. The script verifies chain ID `11155111` an
 7. Open both transactions on Sepolia Etherscan.
 8. Optionally create a second small goal to demonstrate **Close early**.
 
-Use small amounts of free Sepolia test ETH. Do not use real ETH.
+Use small amounts of free Sepolia test ETH. 
 
 ## Project structure
 
