@@ -1,0 +1,28 @@
+{
+  "name": "goalsave-sc6113",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@11.25.0",
+  "type": "module",
+  "description": "SC6113 individual assignment - goal-based savings DApp",
+  "scripts": {
+    "compile": "node scripts/compile.mjs",
+    "test:contract": "node --test tests/contract.test.mjs",
+    "test": "node scripts/compile.mjs && node --test tests/contract.test.mjs",
+    "deploy:sepolia": "node scripts/deploy.mjs"
+  },
+  "dependencies": {
+    "dotenv": "16.6.1",
+    "ethers": "6.15.0"
+  },
+  "devDependencies": {
+    "ganache": "7.9.2",
+    "solc": "0.8.30"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "bufferutil",
+      "utf-8-validate"
+    ]
+  }
+}

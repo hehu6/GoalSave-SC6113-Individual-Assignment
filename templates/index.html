@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="GoalSave is a transparent, goal-based savings DApp on Ethereum Sepolia." />
+    <title>GoalSave · SC6113</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <div class="page-glow page-glow-one"></div>
+    <div class="page-glow page-glow-two"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="GoalSave home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 28 28" role="img"><path d="M5 9.4 14 4l9 5.4v9.2L14 24l-9-5.4V9.4Z"/><path d="m9 13 3 3 7-7"/></svg>
+        </span>
+        <span>GoalSave</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#goals">Goals</a>
+        <a href="#activity">Activity</a>
+        <a href="#how-it-works">How it works</a>
+      </nav>
+      <div class="wallet-actions">
+        <span id="networkBadge" class="network-badge"><i></i> Not connected</span>
+        <button id="connectButton" class="button button-dark" type="button">Connect wallet</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero section-shell">
+        <div class="eyebrow"><span>SC6113 individual DApp</span><span>Sepolia testnet</span></div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>Save with a goal.<br /><em>Prove every step.</em></h1>
+            <p>Create a personal savings target, add test ETH through MetaMask, and withdraw when the target or deadline is reached. Every action stays visible on-chain.</p>
+            <div class="hero-actions">
+              <button id="heroCreateButton" class="button button-primary" type="button">Create a goal <span>↗</span></button>
+              <a class="text-link" href="#how-it-works">See how it works <span>↓</span></a>
+            </div>
+          </div>
+          <aside class="hero-card" aria-label="Product summary">
+            <div class="hero-card-top">
+              <span>YOUR SAVINGS VAULT</span>
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 10h20v16H6z"/><path d="M10 10V7h12v3M11 17h10M16 14v6"/></svg>
+            </div>
+            <div class="mini-chart" aria-hidden="true">
+              <span style="height: 22%"></span><span style="height: 34%"></span><span style="height: 30%"></span><span style="height: 48%"></span><span style="height: 62%"></span><span style="height: 59%"></span><span style="height: 78%"></span><span style="height: 92%"></span>
+            </div>
+            <div class="hero-card-foot"><span>Non-custodial</span><strong>100% transparent</strong></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="dashboard section-shell" aria-labelledby="dashboard-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Dashboard</span>
+            <h2 id="dashboard-title">Your savings at a glance</h2>
+          </div>
+          <p id="walletLabel" class="wallet-label">Connect MetaMask to load your goals</p>
+        </div>
+
+        <div class="stat-grid">
+          <article class="stat-card accent"><span>Total saved</span><strong id="totalSaved">0.0000 ETH</strong><small>Across active goals</small></article>
+          <article class="stat-card"><span>Active goals</span><strong id="activeGoals">0</strong><small>Still in progress</small></article>
+          <article class="stat-card"><span>Ready to withdraw</span><strong id="readyGoals">0</strong><small>Target or deadline met</small></article>
+          <article class="stat-card"><span>Wallet balance</span><strong id="walletBalance">—</strong><small>Current connected wallet</small></article>
+        </div>
+      </section>
+
+      <section id="goals" class="content-section section-shell" aria-labelledby="goals-title">
+        <div class="section-heading compact">
+          <div>
+            <span class="section-kicker">Savings goals</span>
+            <h2 id="goals-title">Plan it. Fund it. Reach it.</h2>
+          </div>
+          <button id="createGoalButton" class="button button-primary" type="button">+ New goal</button>
+        </div>
+
+        <div id="setupNotice" class="notice warning" hidden>
+          <span class="notice-icon">!</span>
+          <div><strong>Contract deployment is not configured.</strong><p>Deploy GoalSave to Sepolia, then add the contract address and deployment block to Render.</p></div>
+        </div>
+
+        <div id="goalGrid" class="goal-grid" aria-live="polite"></div>
+        <div id="goalEmpty" class="empty-state">
+          <div class="empty-icon" aria-hidden="true">◇</div>
+          <h3>No goals loaded yet</h3>
+          <p>Connect MetaMask and create your first transparent savings target.</p>
+          <button class="button button-outline" data-action="create" type="button">Create first goal</button>
+        </div>
+      </section>
+
+      <section id="activity" class="content-section section-shell" aria-labelledby="activity-title">
+        <div class="section-heading compact">
+          <div>
+            <span class="section-kicker">On-chain activity</span>
+            <h2 id="activity-title">A history you can verify</h2>
+          </div>
+          <button id="refreshButton" class="button button-quiet" type="button">↻ Refresh</button>
+        </div>
+        <div class="activity-panel">
+          <div class="activity-head"><span>Event</span><span>Goal</span><span>Amount</span><span>Transaction</span></div>
+          <div id="activityList" class="activity-list">
+            <div class="activity-empty">Connect a wallet to read contract events from Sepolia.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="how-section section-shell" aria-labelledby="how-title">
+        <div class="section-heading light">
+          <div><span class="section-kicker">How it works</span><h2 id="how-title">Simple rules, enforced by code</h2></div>
+          <p>GoalSave never stores your wallet key. MetaMask signs every state-changing transaction.</p>
+        </div>
+        <div class="step-grid">
+          <article><span>01</span><h3>Create</h3><p>Name the goal, choose a target in ETH, and set a future deadline.</p></article>
+          <article><span>02</span><h3>Deposit</h3><p>Add Sepolia ETH. Friends may contribute, while ownership stays with you.</p></article>
+          <article><span>03</span><h3>Withdraw</h3><p>Withdraw normally after reaching the target or deadline, or close early with a labelled emergency action.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="section-shell">
+      <a class="brand" href="#top"><span class="brand-mark small">✓</span><span>GoalSave</span></a>
+      <p>Built for SC6113 · Ethereum Sepolia · Educational use only</p>
+      <a href="https://sepolia.etherscan.io" target="_blank" rel="noreferrer">Sepolia Etherscan ↗</a>
+    </footer>
+
+    <dialog id="goalDialog" class="modal">
+      <form id="goalForm" method="dialog">
+        <div class="modal-head"><div><span class="section-kicker">New savings plan</span><h2>Create a goal</h2></div><button class="icon-button" type="button" data-close aria-label="Close">×</button></div>
+        <label>Goal name<input id="goalName" name="name" maxlength="64" placeholder="e.g. Professional course" required /></label>
+        <div class="field-row">
+          <label>Target amount<input id="goalTarget" name="target" type="number" min="0" step="0.0001" placeholder="0.50" required /><small>Sepolia ETH</small></label>
+          <label>Deadline<input id="goalDeadline" name="deadline" type="datetime-local" required /><small>Your local time</small></label>
+        </div>
+        <p class="form-note">Normal withdrawal unlocks when the target is reached or the deadline passes.</p>
+        <div class="modal-actions"><button class="button button-quiet" value="cancel" type="button" data-close>Cancel</button><button class="button button-primary" type="submit">Create on Sepolia</button></div>
+      </form>
+    </dialog>
+
+    <dialog id="depositDialog" class="modal small-modal">
+      <form id="depositForm" method="dialog">
+        <div class="modal-head"><div><span class="section-kicker">Add savings</span><h2 id="depositTitle">Deposit</h2></div><button class="icon-button" type="button" data-close aria-label="Close">×</button></div>
+        <input id="depositGoalId" type="hidden" />
+        <label>Amount<input id="depositAmount" type="number" min="0" step="0.0001" placeholder="0.05" required /><small>Sepolia ETH</small></label>
+        <div class="modal-actions"><button class="button button-quiet" value="cancel" type="button" data-close>Cancel</button><button class="button button-primary" type="submit">Review in MetaMask</button></div>
+      </form>
+    </dialog>
+
+    <div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="{{ url_for('static', filename='vendor/ethers.umd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </body>
+</html>
