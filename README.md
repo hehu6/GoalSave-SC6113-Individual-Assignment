@@ -2,7 +2,6 @@
 
 GoalSave is a goal-based savings DApp for Ethereum Sepolia. A user creates a named savings goal, deposits test ETH through MetaMask, follows progress on a responsive dashboard, and withdraws once the target or deadline is reached. An explicit early-close action is available for emergencies and is recorded separately on-chain.
 
-> Educational project only. It uses Sepolia test ETH and is not a production financial service.
 
 ## Submission links
 
