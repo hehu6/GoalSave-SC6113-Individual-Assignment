@@ -27,20 +27,6 @@ GoalSave is a goal-based savings DApp for Ethereum Sepolia. A user creates a nam
 | Report | `docs/GoalSave_SC6113_Report.pdf` |
 | Editable report generator | `docs/report_source.py` |
 
-## What makes it an original individual project
-
-The course example demonstrates the basic pattern of storing and reading payer, payee, and amount values. GoalSave applies the same taught stack—Solidity, MetaMask, browser JavaScript, Flask, GitHub, and Render—to a different financial problem and adds:
-
-- per-wallet multiple goals instead of one global transaction record;
-- real payable ETH deposits rather than only saving an amount variable;
-- target and deadline withdrawal rules;
-- owner authorization and re-entrancy protection;
-- event-based transaction history and Etherscan links;
-- server-side input validation and optional receipt verification;
-- automated contract and Flask tests.
-
-No source code from another student's repository is included.
-
 ## Architecture
 
 ```text
